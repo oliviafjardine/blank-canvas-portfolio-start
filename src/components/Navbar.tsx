@@ -5,9 +5,20 @@ import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
 
   const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
+    if (isMobileMenuOpen) {
+      // Start closing animation
+      setIsClosing(true);
+      // After animation completes, actually close the menu
+      setTimeout(() => {
+        setIsMobileMenuOpen(false);
+        setIsClosing(false);
+      }, 300); // 300ms matches the animation duration
+    } else {
+      setIsMobileMenuOpen(true);
+    }
   };
 
   return (
@@ -39,7 +50,7 @@ const Navbar = () => {
 
       {/* Mobile menu overlay */}
       {isMobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 bg-white z-50 flex flex-col items-center justify-center animate-fade-in">
+        <div className={`md:hidden fixed inset-0 bg-white z-50 flex flex-col items-center justify-center ${isClosing ? 'animate-fade-out' : 'animate-fade-in'}`}>
           {/* Close button positioned at the top right */}
           <button 
             onClick={toggleMobileMenu}
