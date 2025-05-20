@@ -16,17 +16,17 @@ const Navbar = () => {
         <Link to="/" className="text-xl font-medium text-gray-800">Portfolio</Link>
         
         <div className="hidden md:flex space-x-8">
-          <Link to="/" className="text-gray-600 hover:text-gray-900 transition-colors">Home</Link>
-          <Link to="/about" className="text-gray-600 hover:text-gray-900 transition-colors">About</Link>
-          <Link to="/skills" className="text-gray-600 hover:text-gray-900 transition-colors">Skills</Link>
-          <Link to="/portfolio" className="text-gray-600 hover:text-gray-900 transition-colors">Portfolio</Link>
-          <Link to="/contact" className="px-4 py-1 bg-gray-100 text-gray-800 rounded hover:bg-gray-200 transition-colors">Contact</Link>
+          <Link to="/" className="text-gray-600 hover:text-gray-900 transition-colors rounded-full px-4 py-2 hover:bg-gray-100">Home</Link>
+          <Link to="/about" className="text-gray-600 hover:text-gray-900 transition-colors rounded-full px-4 py-2 hover:bg-gray-100">About</Link>
+          <Link to="/skills" className="text-gray-600 hover:text-gray-900 transition-colors rounded-full px-4 py-2 hover:bg-gray-100">Skills</Link>
+          <Link to="/portfolio" className="text-gray-600 hover:text-gray-900 transition-colors rounded-full px-4 py-2 hover:bg-gray-100">Portfolio</Link>
+          <Link to="/contact" className="px-4 py-2 bg-gray-100 text-gray-800 rounded-full hover:bg-gray-200 transition-colors">Contact</Link>
         </div>
         
         {/* Mobile menu button */}
         <button 
           onClick={toggleMobileMenu} 
-          className="md:hidden text-gray-600 hover:text-gray-900 focus:outline-none"
+          className="md:hidden text-gray-600 hover:text-gray-900 focus:outline-none p-2 rounded-full hover:bg-gray-100"
           aria-label="Toggle mobile menu"
         >
           {isMobileMenuOpen ? (
@@ -40,38 +40,47 @@ const Navbar = () => {
       {/* Mobile menu overlay */}
       {isMobileMenuOpen && (
         <div className="md:hidden fixed inset-0 bg-white z-50 flex flex-col items-center justify-center animate-fade-in">
+          {/* Close button positioned at the top right */}
+          <button 
+            onClick={toggleMobileMenu}
+            className="absolute top-5 right-6 text-gray-600 hover:text-gray-900 p-2 rounded-full hover:bg-gray-100"
+            aria-label="Close menu"
+          >
+            <X className="h-6 w-6" />
+          </button>
+          
           <div className="flex flex-col items-center space-y-8">
             <Link 
               to="/" 
-              className="text-xl text-gray-800 hover:text-gray-900" 
+              className="text-xl text-gray-800 hover:text-gray-900 px-6 py-2 rounded-full hover:bg-gray-100 transition-colors" 
               onClick={toggleMobileMenu}
             >
               Home
             </Link>
             <Link 
               to="/about" 
-              className="text-xl text-gray-800 hover:text-gray-900" 
+              className="text-xl text-gray-800 hover:text-gray-900 px-6 py-2 rounded-full hover:bg-gray-100 transition-colors" 
               onClick={toggleMobileMenu}
             >
               About
             </Link>
             <Link 
               to="/skills" 
-              className="text-xl text-gray-800 hover:text-gray-900" 
+              className="text-xl text-gray-800 hover:text-gray-900 px-6 py-2 rounded-full hover:bg-gray-100 transition-colors" 
               onClick={toggleMobileMenu}
             >
               Skills
             </Link>
             <Link 
               to="/portfolio" 
-              className="text-xl text-gray-800 hover:text-gray-900" 
+              className="text-xl text-gray-800 hover:text-gray-900 px-6 py-2 rounded-full hover:bg-gray-100 transition-colors" 
               onClick={toggleMobileMenu}
             >
               Portfolio
             </Link>
             <Link 
               to="/contact" 
-              className="text-xl px-6 py-2 bg-gray-100 text-gray-800 rounded hover:bg-gray-200 transition-colors" 
+              className="text-xl px-6 py-2 bg-gray-100 text-gray-800 rounded-full hover:bg-gray-200 transition-colors" 
               onClick={toggleMobileMenu}
             >
               Contact
