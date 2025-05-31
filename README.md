@@ -1,9 +1,5 @@
 # Blank Portfolio Template
 
-## Project info
-
-**URL**: https://lovable.dev/projects/f4e30c90-d45e-46cf-ac15-353ca781af65
-
 ## How can I edit this code?
 
 There are several ways of editing your application.
